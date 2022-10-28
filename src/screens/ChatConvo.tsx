@@ -6,7 +6,6 @@ import {Card} from '../components/Card'
 import {ScrollView, SafeAreaView, Image, StyleSheet, TouchableOpacity, TextInput, Button, ImageBackground, KeyboardAvoidingView, Platform, TouchableWithoutFeedback, Keyboard} from 'react-native'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import theme from '../../constants/theme'
-import Icon from '@mdi/react'
 
 
 const ChatConvo = () => {

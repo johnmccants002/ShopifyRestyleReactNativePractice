@@ -12,6 +12,7 @@ import {
 } from '@react-navigation/native';
 import ChatHome from '../screens/ChatHome'
 import ChatConvo from '../screens/ChatConvo'
+import ApprovedModal from '../components/ApprovedModal'
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 type AppStackParamList = {
@@ -44,7 +45,7 @@ const AppNavigator = () => {
 
     return (
         <Stack.Navigator >
-            <Stack.Screen name="Home" component={ChatConvo} options={{headerTitle: 'Chat', headerStyle: {
+            <Stack.Screen name="Home" component={ApprovedModal} options={{headerTitle: '', headerStyle: {
                         backgroundColor: theme.colors.bluePrimary,
                         shadowColor: 'transparent',
                     },
