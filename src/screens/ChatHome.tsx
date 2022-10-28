@@ -1,7 +1,6 @@
 import React from 'react'
-import theme from '../../theme'
-import Box from '../../Box'
-import Text from '../../Text'
+import { Box, Text} from '../../theme'
+
 import {ScrollView, SafeAreaView } from 'react-native'
 
 

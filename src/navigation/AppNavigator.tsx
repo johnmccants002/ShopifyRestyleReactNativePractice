@@ -10,6 +10,14 @@ import {
     getFocusedRouteNameFromRoute,
     useNavigationState,
 } from '@react-navigation/native';
+import ChatHome from '../screens/ChatHome'
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+
+type AppStackParamList = {
+    Home: undefined;
+};
+
+const Stack = createStackNavigator<AppStackParamList>();
 
 const HeaderLeft = () => {
     return <ProfileHeader width={40} height={40} paddingLeft={15}  />;
@@ -28,3 +36,16 @@ const HeaderRight = () => {
         </HeaderButtons>
     );
 };
+
+const AppNavigator = () => {
+    // const isWorker = true;
+    // props.jobs.length ? null : props.getJobs();
+
+    return (
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="Home" component={ChatHome} />
+        </Stack.Navigator>
+    );
+};
+
+export default AppNavigator;

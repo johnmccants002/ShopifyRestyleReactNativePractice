@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { Box } from '../../theme'
+import { Box } from '../../constants/theme'
 
 interface SpacerProps {
     height?: number | string;

@@ -28,24 +28,12 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import { ThemeProvider } from '@shopify/restyle';
 
-import theme from './theme'
+import theme from './constants/theme'
 import ChatHome from './src/screens/ChatHome'
-
-
-const Section: React.FC<
-  PropsWithChildren<{
-    title: string;
-  }>
-> = ({children, title}) => {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <ChatHome />
-
-    
-    </View>
-  );
-};
+import { Provider } from 'react-redux';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import Navigation from './src/navigation'
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -54,11 +42,19 @@ const App = () => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  return (
-    <ThemeProvider theme={theme}>
-    <ChatHome />
-    </ThemeProvider>
-  );
+    return (
+
+      <ThemeProvider theme={theme}>
+        <SafeAreaProvider>
+       
+              <Navigation />
+          
+        </SafeAreaProvider>
+      </ThemeProvider>
+  
+
+
+    );
 };
 
 const styles = StyleSheet.create({

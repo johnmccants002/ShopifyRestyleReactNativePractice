@@ -15,7 +15,7 @@ import {
     ResponsiveValue,
 } from '@shopify/restyle';
 
-import { Theme, Text, Box } from '../../constants/theme';
+import { Theme, Text, Box } from '../../theme';
 
 type Props = VariantProps<Theme, 'buttonVariants'> & {
     style?: object;
