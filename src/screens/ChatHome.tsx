@@ -10,14 +10,18 @@ import theme from '../../constants/theme'
 
 const ChatHome = () => {
 
+    const messages = 5
+    const read = false
+
 
     return (
     <SafeAreaView>
-        <Box padding={{phone: 'm', desktop: 'l'}} style={{}}>
+        <Box flex={1} padding={{phone: 'm', desktop: 'l'}} style={{}}>
 
             <Box style={styles.inboxContainer}>
+            <ScrollView scrollEnabled={messages < 5} style={styles.scrollContainer}>
 
-            <Box style={styles.messageContainer}>
+            <Box style={styles.readMessageContainer}>
             <Image style={styles.profileImage} source={{uri: 'https://i.imgur.com/MWTxxA6s.jpg'}}/>
             
             <Box style={{flexDirection: 'column', justifyContent: 'center'}}>
@@ -29,15 +33,10 @@ const ChatHome = () => {
 
             </Box>
 
-
+            </ScrollView>
 
             </Box>
 
-
-                
-
-      
-                
             </Box>
 
         </SafeAreaView>
@@ -50,23 +49,34 @@ const styles = StyleSheet.create({
         borderWidth: 5,
         borderColor: theme.colors.white,
         borderRadius: 50,
-        height: 40,
-        width: 40
+        height: 50,
+        width: 50
     },
-    messageContainer: {
+    unreadMessageContainer: {
         flexDirection: 'row',
-        justifyContent: 'space-between'
-        
+        justifyContent: 'space-between',
+        backgroundColor: theme.colors.blueLight
+    },
+    readMessageContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        backgroundColor: theme.colors.brightWhite
 
     },
     inboxContainer: {
-        marginLeft: 20,
-        marginRight: 20
+        marginLeft: 1,
+        marginRight: 1,
+        borderWidth: 1,
+        height: Layout.window.height,
+        borderRadius: 20,
 
     },
     spacerBox: {
         width: 40,
         height: 40
+    },
+    scrollContainer: {
+
     }
 });
 

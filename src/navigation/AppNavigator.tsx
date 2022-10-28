@@ -11,6 +11,7 @@ import {
     useNavigationState,
 } from '@react-navigation/native';
 import ChatHome from '../screens/ChatHome'
+import ChatConvo from '../screens/ChatConvo'
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 type AppStackParamList = {
@@ -43,7 +44,7 @@ const AppNavigator = () => {
 
     return (
         <Stack.Navigator >
-            <Stack.Screen name="Home" component={ChatHome} options={{headerTitle: 'Chat', headerStyle: {
+            <Stack.Screen name="Home" component={ChatConvo} options={{headerTitle: 'Chat', headerStyle: {
                         backgroundColor: theme.colors.bluePrimary,
                         shadowColor: 'transparent',
                     },
