@@ -13,7 +13,7 @@ const Stack = createStackNavigator<RootStackParamList>();
 const Navigation = () => {
     return (
         <NavigationContainer>
-            <Stack.Navigator screenOptions={{ headerShown: true }}>
+            <Stack.Navigator screenOptions={{ headerShown: false}}>
                 <Stack.Screen name="App" component={AppNavigator} />
             </Stack.Navigator>
         </NavigationContainer>

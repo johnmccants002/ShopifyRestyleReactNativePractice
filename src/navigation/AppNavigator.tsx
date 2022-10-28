@@ -2,7 +2,7 @@ import ProfileHeader from '../components/ProfileHeader'
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import CustomHeaderButton from '../components/CustomHeaderButton'
 import { Button } from '../components/Button';
-import theme from '../../theme'
+import theme from '../../constants/theme'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import React, { useEffect } from 'react';
@@ -25,14 +25,14 @@ const HeaderLeft = () => {
 const HeaderRight = () => {
     return (
         <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
-            <Item
+            {/* <Item
                 title="Menu"
                 iconName="menu"
-                color={theme.colors.mainBackground}
+                color={theme.colors.blueLight}
                 onPress={() => {
                     // props.navigation.toggleDrawer();
                 }}
-            />
+            /> */}
         </HeaderButtons>
     );
 };
@@ -42,8 +42,14 @@ const AppNavigator = () => {
     // props.jobs.length ? null : props.getJobs();
 
     return (
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="Home" component={ChatHome} />
+        <Stack.Navigator >
+            <Stack.Screen name="Home" component={ChatHome} options={{headerTitle: 'Chat', headerStyle: {
+                        backgroundColor: theme.colors.bluePrimary,
+                        shadowColor: 'transparent',
+                    },
+                    headerTintColor: theme.colors.white,
+                    headerLeft: () => <HeaderLeft />,
+                    headerRight: () => <HeaderRight />,}}/>
         </Stack.Navigator>
     );
 };
