@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Box } from '../../constants/theme'
+import HeaderV2 from '../components/HeaderV2'
 
 interface SpacerProps {
     height?: number | string;
@@ -26,3 +27,14 @@ const styles = StyleSheet.create({
     },
 });
 export default Spacer;
+
+const Spacer2 = (props: SpacerProps) => {
+    return (
+        <Box flex={1} style={{overflow: 'hidden'}} >
+            <Box style={{justifyContent: 'center', width: '200%'}}>
+            <HeaderV2 style={{alignSelf: 'stretch'}}/>
+        </Box>
+        </Box>
+          
+    );
+};

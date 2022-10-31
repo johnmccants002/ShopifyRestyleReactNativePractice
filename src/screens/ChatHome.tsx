@@ -6,6 +6,7 @@ import {Card} from '../components/Card'
 import {ScrollView, SafeAreaView, Image, StyleSheet } from 'react-native'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import theme from '../../constants/theme'
+import HeaderV2 from '../components/HeaderV2'
 
 
 const ChatHome = () => {
@@ -15,18 +16,25 @@ const ChatHome = () => {
 
 
     return (
-    <SafeAreaView>
-        <Box flex={1} padding={{phone: 'm', desktop: 'l'}} style={{}}>
+
+        <Box flex={1} style={{overflow: 'hidden'}} >
+            <Box style={{justifyContent: 'center', width: '200%'}}>
+            <HeaderV2 style={{alignSelf: 'stretch'}}/>
+        </Box>
+          
+
+               
+            
 
             <Box style={styles.inboxContainer}>
-            <ScrollView scrollEnabled={messages < 5} style={styles.scrollContainer}>
+                <ScrollView scrollEnabled={messages < 5} style={styles.scrollContainer}>
 
             <Box style={styles.readMessageContainer}>
-            <Image style={styles.profileImage} source={{uri: 'https://i.imgur.com/MWTxxA6s.jpg'}}/>
+                <Image style={styles.profileImage} source={{uri: 'https://i.imgur.com/MWTxxA6s.jpg'}}/>
             
             <Box style={{flexDirection: 'column', justifyContent: 'center'}}>
-            <Text style={{textAlign: 'center', fontWeight: 'bold'}}>Joe Thomas</Text>
-            <Text style={{textAlign: 'center'}}>RE: Forklift Operator</Text>
+                <Text style={{textAlign: 'center', fontWeight: 'bold'}}>Joe Thomas</Text>
+                <Text style={{textAlign: 'center'}}>RE: Forklift Operator</Text>
             </Box>
 
             <Box style={styles.spacerBox}></Box>
@@ -37,9 +45,8 @@ const ChatHome = () => {
 
             </Box>
 
-            </Box>
+        </Box>
 
-        </SafeAreaView>
     )
 
 }

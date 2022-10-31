@@ -5,6 +5,7 @@ import Layout from '../../constants/layout';
 import theme, { Box, Text } from '../../constants/theme';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Spacer from '../components/Spacer';
+import Labels from '../components/Labels'
 
 
 
@@ -76,7 +77,7 @@ const Profile = ({ route, navigation }: any) => {
                                             {'California'}
                                             ~3km
                                         </Text>
-                                    )}
+                                    
                                 </Box>
                             </Box>
                             <Box

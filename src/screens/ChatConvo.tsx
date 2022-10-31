@@ -8,6 +8,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import theme from '../../constants/theme'
 
 
+
 const ChatConvo = () => {
 
     return (
@@ -15,8 +16,9 @@ const ChatConvo = () => {
         style={{
           flex: 1,
         }}>
-            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <SafeAreaView>
+
 
             <Box style={styles.mainContainer}>
                 <Box style={styles.titleContainer}>
@@ -24,22 +26,27 @@ const ChatConvo = () => {
                     <Text style={{textAlign: 'center'}}>RE: Forklift Operator</Text>
                 </Box>
                 <ScrollView>
+
+                    
                     <Box style={styles.senderContainer}>
                         <Image style={styles.profileImage} source={{uri: 'https://i.imgur.com/MWTxxA6s.jpg'}}/>
                         <Box style={styles.senderMessageContainer}>
                             <Text style={{fontWeight: '500'}}>Hey whats up</Text>
                         </Box>
-
                     </Box>
+                    
 
 
                     <Box style={styles.recipientContainer}>
                         <Image style={styles.profileImage} source={{uri: 'https://i.imgur.com/MWTxxA6s.jpg'}}/>
                         <Box style={styles.recipientMessageContainer}>
-                            <Text style={{fontWeight: '500'}}>Hey whats up</Text>
+                            <Text numberOfLines={4} style={{flex: 1, fontWeight: '500', flexWrap: 'wrap', width: 260}}>Hey whats up this is a longer message so we're just testing</Text>
                         </Box>
-
                     </Box>
+
+                    
+
+
 
 
                 </ScrollView>
@@ -101,15 +108,20 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         paddingRight: 10,
 
+
     },
     senderContainer: {
         flexDirection: 'row',
-        marginLeft: 10
+        marginLeft: 10,
+        marginBottom: 10,
 
     },
     recipientContainer: {
         flexDirection: 'row-reverse',
-        marginRight: 10
+        marginRight: 10,
+        marginBottom: 10,
+       
+ 
 
     },
     recipientMessageContainer: {
@@ -118,6 +130,7 @@ const styles = StyleSheet.create({
         paddingTop: 10,
         paddingLeft: 10,
         paddingRight: 10,
+        
     },
     profileImage: {
         borderWidth: 5,
@@ -166,3 +179,7 @@ const styles = StyleSheet.create({
 })
 
 export default ChatConvo
+
+
+
+

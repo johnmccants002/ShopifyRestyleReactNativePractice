@@ -15,7 +15,7 @@ import {
     ResponsiveValue,
 } from '@shopify/restyle';
 
-import { Theme, Text, Box } from '../../theme';
+import { Theme, Text, Box } from '../../constants/theme';
 
 type Props = VariantProps<Theme, 'buttonVariants'> & {
     style?: object;
@@ -34,6 +34,11 @@ type Props = VariantProps<Theme, 'buttonVariants'> & {
     height?: number | string;
     disabled?: boolean;
 };
+
+// type ButtonProps = VariantProps<Theme, 'buttonVariants'> & {
+//     testID?: string;
+
+// }
 
 const ButtonContainer = createRestyleComponent<
     VariantProps<Theme, 'buttonVariants'> &
@@ -111,7 +116,7 @@ export const IconButton = ({
                 <MaterialCommunityIcons
                     name={icon}
                     size={size}
-                    color={iconColor}
+                    // color={iconColor}
                 />
             </TouchableOpacity>
         </ButtonContainer>
