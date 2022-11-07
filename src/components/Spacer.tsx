@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Box } from '../../constants/theme'
 import HeaderV2 from '../components/HeaderV2'
+import Header2 from '../../assets/header2.svg'
 
 interface SpacerProps {
     height?: number | string;
@@ -9,13 +10,12 @@ interface SpacerProps {
 
 const Spacer = (props: SpacerProps) => {
     return (
-        <Box
-            backgroundColor="bluePrimary"
-            height={
-                props.height ? props.height : { phone: '15%', desktop: '5%' }
-            }
-            style={styles.spacer}
-        />
+    <Box style={styles.spacer}  >
+        <Box aspectRatio={375 / 176}>
+            <Header2 width='100%' height='100%'/>
+        </Box>
+    </Box>
+          
     );
 };
 
@@ -28,13 +28,3 @@ const styles = StyleSheet.create({
 });
 export default Spacer;
 
-const Spacer2 = (props: SpacerProps) => {
-    return (
-        <Box flex={1} style={{overflow: 'hidden'}} >
-            <Box style={{justifyContent: 'center', width: '200%'}}>
-            <HeaderV2 style={{alignSelf: 'stretch'}}/>
-        </Box>
-        </Box>
-          
-    );
-};

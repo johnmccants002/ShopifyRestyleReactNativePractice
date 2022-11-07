@@ -19,6 +19,7 @@ import ChatTest from '../screens/ChatTest'
 import ProfileReviews from '../components/ProfileReviews'
 import { TouchableOpacity, Image } from 'react-native';
 import {Box, Text} from '../../constants/theme'
+import Chat from '../screens/ChatExample'
 
 type AppStackParamList = {
     Home: undefined;
@@ -52,9 +53,9 @@ const AppNavigator = () => {
 
     return (
         <Stack.Navigator >
-            <Stack.Screen name="Home" component={ChatHome} options={{
-                headerTransparent: true,
+            <Stack.Screen name="Home" component={Profile} options={{
                 headerTitle: '',
+                headerTransparent: true,
                 headerLeft: () => (
                     <Box style={{flexDirection: 'row'}}marginLeft='m'>
                     <TouchableOpacity>

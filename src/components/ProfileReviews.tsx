@@ -12,6 +12,8 @@ import {Box} from '../../constants/theme'
 type Props = {
     reviews: Review[] | undefined;
     overallRating: number;
+    setShowReviews: Function;
+    showReviews: boolean;
 }
 
 export interface Review {
@@ -22,8 +24,7 @@ export interface Review {
 }
 
 const ProfileReviews = (props: Props) => {
-    const { reviews, overallRating } = props;
-    const [showContent, setShowContent] = useState(false)
+    const { reviews, overallRating, showReviews, setShowReviews } = props;
     const animationController = useRef(new Animated.Value(0)).current;
     const newHeight = 400
 
@@ -35,13 +36,13 @@ const ProfileReviews = (props: Props) => {
     const toggleListItem = () => {
         const config = {
             duration: 300,
-            toValue: showContent ? 0 : 1,
+            toValue: showReviews ? 0 : 1,
             useNativeDriver: true
         };
 
         Animated.timing(animationController, config).start()
         LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
-        setShowContent(!showContent)
+        setShowReviews(!showReviews)
     }
 
     const arrowTransform = animationController.interpolate({
@@ -50,7 +51,7 @@ const ProfileReviews = (props: Props) => {
     })
 
     return (
-        <Box style ={styles.container} paddingBottom='s'>
+        <Box style ={styles.container} >
             <TouchableOpacity onPress={() => toggleListItem()}>
                 <Box style={styles.topContainer} >
 
@@ -58,19 +59,19 @@ const ProfileReviews = (props: Props) => {
                         <Rating color='bluePrimary' rating={overallRating} cap={5} size={16} />
                     </Box>
 
-                    <Box style={{flexDirection: 'row', padding: 5,  justifyContent: 'space-between'}}>
+                    <Box style={{flexDirection: 'row', padding: 5,  justifyContent: 'space-between', alignItems: 'center'}}>
                         <Text style={styles.titleContainer}>
                             {`${data.length} completed jobs`}
                         </Text>
                         <Box style={{width:10}}></Box>
                         <Animated.View style={{transform: [{rotateX: arrowTransform}]}}>
-                            <Image style={{marginLeft:2, marginTop:10}} source={require('../../assets/downarrow.png')}/>
+                            <Image style={{marginLeft:2}} source={require('../../assets/downarrow.png')}/>
                         </Animated.View>     
                     </Box>
 
                 </Box>
             </TouchableOpacity>
-            {showContent && 
+            {showReviews && 
             <Box style={styles.body}>
                 <Box
             style={{
@@ -114,7 +115,7 @@ const styles = StyleSheet.create({
         padding: '2%',
         borderRadius: 12,
         backgroundColor: 'white',
-        marginBottom: '2%',
+
         overflow: 'hidden',
         flexDirection: 'row',
         justifyContent: 'space-between'
@@ -128,7 +129,8 @@ const styles = StyleSheet.create({
     },
     body: {
         paddingHorizontal: '2%',
-        paddingVertical: '1%'
+        paddingBottom: 10,
+        paddingTop: 2
     },
     titleContainer: {
         flexDirection: 'row',
